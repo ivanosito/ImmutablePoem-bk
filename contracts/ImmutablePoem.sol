@@ -32,6 +32,7 @@ contract ImmutablePoem {
         poemCount++;
     }
 
+/*
     function getPoem(uint256 _poemId) external view returns (
         string memory title,
         string memory content,
@@ -50,6 +51,12 @@ contract ImmutablePoem {
             p.totalStars,
             p.totalRatings
         );
+    }  
+*/
+
+    function getPoemStruct(uint256 _poemId) external view returns (Poem memory) {
+        require(_poemId < poemCount, "No poem at that position.");
+        return poems[_poemId];
     }
 
     function ratePoem(uint256 _poemId, uint8 _stars) public {
