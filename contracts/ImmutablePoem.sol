@@ -12,7 +12,7 @@ contract ImmutablePoem {
         uint256 totalRatings;
     }
 
-    mapping(uint256 => Poem) public poems;
+    mapping(uint256 => Poem) private poems;
     uint256 public poemCount;
 
     event NewPoem(uint256 indexed poemId, address indexed author);
@@ -30,6 +30,26 @@ contract ImmutablePoem {
 
         emit NewPoem(poemCount, msg.sender);
         poemCount++;
+    }
+
+    function getPoem(uint256 _poemId) external view returns (
+        string memory title,
+        string memory content,
+        address author,
+        uint256 timestamp,
+        uint256 totalStars,
+        uint256 totalRatings
+    ) {
+        require(_poemId < poemCount, "No poem at that position.");
+        Poem memory p = poems[_poemId];
+        return (
+            p.title,
+            p.content,
+            p.author,
+            p.timestamp,
+            p.totalStars,
+            p.totalRatings
+        );
     }
 
     function ratePoem(uint256 _poemId, uint8 _stars) public {
