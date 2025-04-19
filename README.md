@@ -1,13 +1,37 @@
-# Sample Hardhat Project
+# 🛠️ ImmutablePoem Smart Contract
 
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, and a Hardhat Ignition module that deploys that contract.
+This repository contains the Solidity smart contract and Hardhat project for **ImmutablePoem** — a minimalist, fully functional decentralized poem publishing platform, designed as a self-contained **Proof of Concept (PoC)**.
 
-Try running some of the following tasks:
+It is the backend engine of the ImmutablePoem UI:  
+> [View frontend repo here](https://github.com/ivanosito/immutablepoem-ui)
 
-```shell
-npx hardhat help
-npx hardhat test
-REPORT_GAS=true npx hardhat test
-npx hardhat node
-npx hardhat ignition deploy ./ignition/modules/Lock.js
-```
+---
+
+## 📜 Contract Overview
+
+The `ImmutablePoem.sol` contract enables:
+
+- 🖋️ Publishing poems immutably
+- ⭐ Rating poems (1–5 stars)
+- 📊 Tracking average ratings per poem
+- 🔐 On-chain author verification via `msg.sender`
+
+---
+
+## 🧱 Stack
+
+- **Solidity v0.8.20**
+- **Hardhat**
+- **Ethers.js (via frontend)**
+- Local blockchain for testing
+
+---
+
+## 🚀 Getting Started
+
+### 1. Clone & Install
+
+```bash
+git clone https://github.com/ivanosito/ImmutablePoem-bk.git
+cd ImmutablePoem-bk
+npm install
